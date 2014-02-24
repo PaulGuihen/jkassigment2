@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Trip_booking.Models.Guest>
+
+@{
     ViewBag.Title = "Home Page";
 }
 @section featured {
@@ -43,3 +45,29 @@
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+
+<div class="row">
+    <div class="col-lg-offset-1 col-sm-6">
+        <h2>List of Guests</h2>
+        <p class="lead">Basic EF with seeded database. Data Migrations are also enabled to cope with any changes to the data model.</p>
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Guest_Name)
+                </th>
+                
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Guest_Name)
+                    </td>                    
+                    
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
