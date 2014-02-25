@@ -45,36 +45,38 @@ namespace Trip_booking.DAL
             };
             guests.ForEach(s => context.Guest.Add(s));
             context.SaveChanges();
-            /*var courses = new List<Course>
+
+
+            var Trips = new List<Trips>
             {
-            new Course{CourseID=1050,Title="Chemistry",Credits=3,},
-            new Course{CourseID=4022,Title="Microeconomics",Credits=3,},
-            new Course{CourseID=4041,Title="Macroeconomics",Credits=3,},
-            new Course{CourseID=1045,Title="Calculus",Credits=4,},
-            new Course{CourseID=3141,Title="Trigonometry",Credits=4,},
-            new Course{CourseID=2021,Title="Composition",Credits=3,},
-            new Course{CourseID=2042,Title="Literature",Credits=4,}
+            new Trips{TripID=1050,Trip_Name="America",LegID =10 ,Start_Date=DateTime.Parse("2001-09-01"),Finish_Date=DateTime.Parse("2001-16-01")},
+            new Trips{TripID=1051,Trip_Name="England",LegID =11,Start_Date=DateTime.Parse("2001-17-01"),Finish_Date=DateTime.Parse("2001-24-01")},
+            //new Trips{TripID=1052,Trip_Name="France",LegID =12,Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02")},
+            new Trips{TripID=1050,Trip_Name="Ireland",LegID =13,Start_Date=DateTime.Parse("2001-03-02"),Finish_Date=DateTime.Parse("2001-10-02")},
+         
             };
-            courses.ForEach(s => context.Courses.Add(s));
+            Trips.ForEach(s => context.Trips.Add(s));
             context.SaveChanges();
-            var enrollments = new List<Enrollment>
-            {
-            new Enrollment{StudentID=1,CourseID=1050,Grade=Grade.A},
-            new Enrollment{StudentID=1,CourseID=4022,Grade=Grade.C},
-            new Enrollment{StudentID=1,CourseID=4041,Grade=Grade.B},
-            new Enrollment{StudentID=2,CourseID=1045,Grade=Grade.B},
-            new Enrollment{StudentID=2,CourseID=3141,Grade=Grade.F},
-            new Enrollment{StudentID=2,CourseID=2021,Grade=Grade.F},
-            new Enrollment{StudentID=3,CourseID=1050},
-            new Enrollment{StudentID=4,CourseID=1050,},
-            new Enrollment{StudentID=4,CourseID=4022,Grade=Grade.F},
-            new Enrollment{StudentID=5,CourseID=4041,Grade=Grade.C},
-            new Enrollment{StudentID=6,CourseID=1045},
-            new Enrollment{StudentID=7,CourseID=3141,Grade=Grade.A},
-            };
-            enrollments.ForEach(s => context.Enrollments.Add(s));
             
-            context.SaveChanges();*/
+            var Legs = new List<Legs>
+            {
+              new Legs{LegID=1001,Start_location="New_York",Finish_location="LosVegus", Start_Date=DateTime.Parse("2001-09-01"),Finish_Date=DateTime.Parse("2001-16-01"),TripID=30},
+              new Legs{LegID=1002,Start_location="Canda",Finish_location="Niagra_Falls", Start_Date=DateTime.Parse("2001-17-01"),Finish_Date=DateTime.Parse("2001-24-01"),TripID=30},
+              new Legs{LegID=1001,Start_location="Florida",Finish_location="California", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+           
+              new Legs{LegID=1001,Start_location="Wales",Finish_location="Scotland", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+              new Legs{LegID=1001,Start_location="LiverPool",Finish_location="BlackPool", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+              new Legs{LegID=1001,Start_location="Cardiff",Finish_location="Portsmuth", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+           
+               new Legs{LegID=1001,Start_location="Sligo",Finish_location="Galway", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+               new Legs{LegID=1001,Start_location="Dublin",Finish_location="Belfast", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+               new Legs{LegID=1001,Start_location="Limerick",Finish_location="WaterFord", Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02"),TripID=30},
+           
+          
+            };
+            Legs.ForEach(s => context.Legs.Add(s));
+            
+            context.SaveChanges();
         }
     }   // end SchoolInitializer class
 }

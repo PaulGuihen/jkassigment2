@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Trip_booking.Models;
 using Trip_booking.DAL;
 
+
 namespace Trip_booking.Controllers
 {
     public class HomeController : Controller
@@ -15,9 +16,11 @@ namespace Trip_booking.Controllers
         // GET: /Student/
         public ActionResult Index()
         {
-            return View(_ctx.Guest);
+            //return View(_ctx.Guest);
+            return View(_ctx.Trips);
         }
 
+       
         /*public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
