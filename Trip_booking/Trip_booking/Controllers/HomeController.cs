@@ -20,6 +20,24 @@ namespace Trip_booking.Controllers
             return View(_ctx.Trips);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Guest_Name")] Guest Guest)
+        {
+            if (ModelState.IsValid)
+            {
+                _ctx.Guest.Add(Guest);
+                
+                //_ctx.Entry(Guest).State = EntityState.Added;
+                _ctx.SaveChanges();
+                return RedirectToAction("Index");
+                
+            }
+            
+            // if not valid, re-send View with already entered data
+            return View(Guest);
+        }
+
        
         /*public ActionResult Index()
         {
@@ -28,18 +46,18 @@ namespace Trip_booking.Controllers
             return View();
         }*/
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your app description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }
