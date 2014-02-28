@@ -1,0 +1,44 @@
+﻿@model Trip_booking.Models.legs_guest
+
+@{
+    ViewBag.Title = "CreateLegsGuest";
+}
+
+<h2>CreateLegsGuest</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>legs_guest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LegID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegID)
+            @Html.ValidationMessageFor(model => model.LegID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GuestID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GuestID)
+            @Html.ValidationMessageFor(model => model.GuestID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

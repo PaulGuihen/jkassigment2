@@ -34,14 +34,14 @@ namespace Trip_booking.DAL
         {
             var guests = new List<Guest>
             {
-            new Guest{Guest_Name="Carson"},
-            new Guest{Guest_Name="Meredith"},
-            new Guest{Guest_Name="Arturo"},
-            new Guest{Guest_Name="Gytis"},
-            new Guest{Guest_Name="Yan"},
-            new Guest{Guest_Name="Peggy"},
-            new Guest{Guest_Name="Laura"},
-            new Guest{Guest_Name="Nino"}
+            new Guest{Guest_Name="Carson",LegID=1},
+            new Guest{Guest_Name="Meredith",LegID=1},
+            new Guest{Guest_Name="Arturo",LegID=2},
+            new Guest{Guest_Name="Gytis",LegID=2},
+            new Guest{Guest_Name="Yan",LegID=3},
+            new Guest{Guest_Name="Peggy",LegID=3},
+            new Guest{Guest_Name="Laura",LegID=4},
+            new Guest{Guest_Name="Nino",LegID=4}
             };
             guests.ForEach(s => context.Guest.Add(s));
             context.SaveChanges();

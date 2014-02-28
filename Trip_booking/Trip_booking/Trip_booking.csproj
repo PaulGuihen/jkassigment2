@@ -189,12 +189,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\BookingContext.cs" />
     <Compile Include="DAL\GuestsContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Trips.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -310,7 +310,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\CreateTrip.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\CreateGuest.cshtml" />
+    <Content Include="Views\Home\CreateLegs.cshtml" />
+    <Content Include="Views\Home\CreateLegsGuest.cshtml" />
+    <Content Include="Views\Home\Guests.cshtml" />
+    <Content Include="Views\Home\Legs.cshtml" />
+    <Content Include="Views\Home\LegsGuests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
