@@ -9,7 +9,9 @@ namespace Trip_booking.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(Trip_booking.Models.TripsDBContext context)
