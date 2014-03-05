@@ -10,8 +10,8 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
+   
     <fieldset>
-        
         <legend>Trips</legend>
 
         <div class="editor-label">
@@ -50,10 +50,13 @@
             <input type="submit" value="Create" />
         </p>
     </fieldset>
+        
 }
 
-<div>
+<div class="col-md-4">
     @Html.ActionLink("Back to List", "Index")
+    
+    
 </div>
 
 @section Scripts {

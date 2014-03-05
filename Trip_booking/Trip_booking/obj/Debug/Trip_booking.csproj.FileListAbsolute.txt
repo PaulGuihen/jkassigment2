@@ -530,5 +530,7 @@ C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\bin\ru\Sys
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.csprojResolveAssemblyReference.cache
+C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.Migrations.test_Migration.resources
+C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.csproj.GenerateResource.Cache
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.dll
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.pdb

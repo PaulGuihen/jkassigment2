@@ -16,6 +16,28 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="~/Content/ico/apple-touch-icon-57-precomposed.png">
         <link href="~/Content/ico/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @*using jquery to implement date picker*@
+          @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+    <script src="@Url.Content("~/Scripts/jquery-2.0.2.js")" 
+    type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.core.css")" 
+    rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.datepicker.css")" 
+    rel="stylesheet"  type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" 
+    rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")" 
+    type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
     </head>
     <body>
         @Html.Partial("_NavBar")
