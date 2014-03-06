@@ -534,3 +534,7 @@ C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.csproj.GenerateResource.Cache
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.dll
 C:\Users\Paul\Documents\GitHub\jkassigment2\Trip_booking\Trip_booking\obj\Debug\Trip_booking.pdb
+C:\Users\Admin\Code\CodeFirst\Trip_booking\Trip_booking\obj\Debug\Trip_booking.Migrations.test_Migration.resources
+C:\Users\Admin\Code\CodeFirst\Trip_booking\Trip_booking\obj\Debug\Trip_booking.csproj.GenerateResource.Cache
+C:\Users\Paul\Dropbox\Code\rad_302\Trip_booking\Trip_booking\obj\Debug\Trip_booking.Migrations.test_Migration.resources
+C:\Users\Paul\Dropbox\Code\rad_302\Trip_booking\Trip_booking\obj\Debug\Trip_booking.csproj.GenerateResource.Cache

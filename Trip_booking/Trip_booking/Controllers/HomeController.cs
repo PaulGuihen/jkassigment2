@@ -165,6 +165,7 @@ namespace Trip_booking.Controllers
                 return RedirectToAction("Index");
             }
 
+            PopulateTripsDropDownList();
             return View(legs);
         }
 
