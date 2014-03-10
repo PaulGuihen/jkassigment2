@@ -10,6 +10,7 @@ namespace Trip_booking.Models
 {
     public class Trips
     {
+        // table for trips
         [Key]
         public int TripID { get; set; }
         public string Trip_Name { get; set; }
@@ -24,6 +25,7 @@ namespace Trip_booking.Models
 
     public class Legs
     {
+        // table for legs
         [Key]
         public int LegID { get; set; }
         public string Start_location { get; set; }
@@ -37,6 +39,7 @@ namespace Trip_booking.Models
 
     public class legs_guest
     {
+        // table forlegs guest
         [Key]
         public int ID { get; set; }
         public int LegID { get; set; }
@@ -48,6 +51,7 @@ namespace Trip_booking.Models
 
     public class Guest
     {
+        // table for guest
         [Key]
         public int GuestID { get; set; }
         public string Guest_Name { get; set; }
@@ -57,7 +61,7 @@ namespace Trip_booking.Models
         
 
     }
-
+    // setting up DB context 
     public class TripsDBContext : DbContext
     {
 

@@ -49,10 +49,9 @@ namespace Trip_booking.DAL
 
             var Trips = new List<Trips>
             {
-            new Trips{TripID=1050,Trip_Name="America",LegID =10 ,Start_Date=DateTime.Parse("2001-09-01"),Finish_Date=DateTime.Parse("2001-16-01")},
-            new Trips{TripID=1051,Trip_Name="England",LegID =11,Start_Date=DateTime.Parse("2001-17-01"),Finish_Date=DateTime.Parse("2001-24-01")},
-            //new Trips{TripID=1052,Trip_Name="France",LegID =12,Start_Date=DateTime.Parse("2001-25-01"),Finish_Date=DateTime.Parse("2001-02-02")},
-            new Trips{TripID=1050,Trip_Name="Ireland",LegID =13,Start_Date=DateTime.Parse("2001-03-02"),Finish_Date=DateTime.Parse("2001-10-02")},
+            new Trips{Trip_Name="America",Start_Date=DateTime.Parse("02/04/2014"),Finish_Date=DateTime.Parse("10/8/2015")},
+            new Trips{Trip_Name="England",Start_Date=DateTime.Parse("08/06/2014"),Finish_Date=DateTime.Parse("10/9/2014")},
+            new Trips{Trip_Name="Ireland",Start_Date=DateTime.Parse("10/8/2014"),Finish_Date=DateTime.Parse("10/8/2015")},
          
             };
             Trips.ForEach(s => context.Trips.Add(s));

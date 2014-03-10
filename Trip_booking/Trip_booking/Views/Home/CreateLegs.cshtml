@@ -6,20 +6,22 @@
 
 <h2>CreateLegs</h2>
 
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
+        @*setup from for createing legs*@
         <legend>Legs</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.TripID)
         </div>
-        <div class="editor-field">
-            @*Html.EditorFor(model => model.TripID)*@
-            @Html.ValidationMessageFor(model => model.TripID)
+        @*populate  PopulateTripsDropDownList  with list of trip names*@ 
+        <div class="editor-field">  
             @Html.DropDownList("TripID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TripID)
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Start_location)
@@ -41,6 +43,7 @@
             @Html.LabelFor(model => model.Start_Date)
         </div>
         <div class="editor-field">
+            @*using java script to setup datepicker*@ 
             @Html.TextBoxFor(model => model.Start_Date, new { @class="datepicker"})
             @Html.ValidationMessageFor(model => model.Start_Date)
         </div>
@@ -49,11 +52,13 @@
             @Html.LabelFor(model => model.Finish_Date)
         </div>
         <div class="editor-field">
+            @*using java script to setup datepicker*@
              @Html.TextBoxFor(model => model.Finish_Date, new { @class="datepicker"})
              @Html.ValidationMessageFor(model => model.Finish_Date)
         </div>       
 
         <p>
+            @*buttons*@
             <input type="submit" value="Create" />
         </p>
     </fieldset>
@@ -67,7 +72,8 @@
     @Scripts.Render("~/bundles/jquery")    
     @Scripts.Render("~/bundles/jqueryui")
      
-   
+ @*using java script to setup datepicker*@
+
     <script type="text/javascript">
         $(".datepicker").datepicker(
             {

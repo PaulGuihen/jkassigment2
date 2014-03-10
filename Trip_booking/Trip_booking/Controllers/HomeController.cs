@@ -7,58 +7,58 @@ using Trip_booking.Models;
 using Trip_booking.DAL;
 
 
+// home controller class
 namespace Trip_booking.Controllers
 {
     public class HomeController : Controller
     {
+        //connection to data base
         private GuestsContext _ctx = new GuestsContext();
 
-        // GET: /Student/
+        // return trips home page 
         public ActionResult Index()
         {
-            //return View(_ctx.Guest);
+            
             return View(_ctx.Trips);
         }
 
-        // GET: /Student/
+        // retrun guest data to view
         public ActionResult Guests()
         {
             //return View(_ctx.Guest);
             return View(_ctx.Guest);
         }
 
-        // GET: /Student/
+        // return legs data view
         public ActionResult Legs()
         {
-            //return View(_ctx.Guest);
+            
             return View(_ctx.Legs);
         }
 
-        // GET: /Student/
+        // return legguest data to view
         public ActionResult LegsGuests()
         {
             //return View(_ctx.Guest);
             return View(_ctx.legs_guest);
         }
 
-        // GET: /Student/Create
+        // return create view form 
         public ActionResult Create()
         {
+           
             return View();
         }
 
 
 
-
-        // POST: /Student/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+// send create information to the data base
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Trip_Name,LegID,Start_Date,Finish_Date")] Trips trips)
         {
 
-            
+            //validation 
             if (ModelState.IsValid)
             {
                 _ctx.Trips.Add(trips);
@@ -66,19 +66,70 @@ namespace Trip_booking.Controllers
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            // return to create trips view page if validation is false 
             return View(trips);
         }
 
-        // GET: /Student/Create
+        // create guest view 
         public ActionResult CreateGuest()
         {
             return View();
         }
 
-        // POST: /Student/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //method to check trip status
+
+        public String GetStatus(int TripID)
+        {
+            int nLegCount = 0;
+            List<Legs> legs = _ctx.Legs.ToList();
+
+            
+            foreach (var leg in legs)
+            {
+
+                if (TripID == leg.TripID)
+                {
+                    nLegCount++;
+                }
+
+            }
+            // check to see if legs is greater than 1 
+            if (nLegCount > 1)
+            {
+                return "viable";
+            }
+            else
+                return "";
+
+        }
+
+        // Partial view functiion to get legs details using AJAX
+        public PartialViewResult GetLegDetailsForTipe(int TripID)
+        {
+            List<Legs> legs = _ctx.Legs.ToList();
+
+            bool foundLegs = false;
+            foreach (var leg in legs)
+            {
+                // find all legs for this trip   n display result in partial page
+                if (TripID == leg.TripID)
+                {
+                    ViewBag.Tiffin += "Leg Start " + leg.Start_location + " " + leg.Start_Date.ToShortDateString() + " Leg Finish " + leg.Finish_location + " " + leg.Finish_Date.ToShortDateString() + "<br>";
+                    foundLegs = true;
+                }
+
+            }
+            // if no legs added  display this 
+            if (foundLegs==false)
+            {
+                ViewBag.Tiffin = "No Legs Added For This Trip";
+            }
+
+            //return partial page 
+            return PartialView("_Result");
+        }
+
+        //create guest view 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateGuest([Bind(Include = "Guest_Name,LegID,Guests_GuestID")] Guest guest)
@@ -86,13 +137,13 @@ namespace Trip_booking.Controllers
             if (ModelState.IsValid)
             {
                 _ctx.Guest.Add(guest);
-                //_ctx.Entry(trips).State = EntityState.Added;
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(guest);
         }
+
         // populate legs trips drop down list with data frm trips table
         private void PopulateTripsDropDownList(object selectedTeams = null)
         {
@@ -103,18 +154,15 @@ namespace Trip_booking.Controllers
         }
 
         
-        // GET: /trips/Create
+        // create legs form 
         public ActionResult CreateLegs()
         {
+            // populate legs trips drop down list with data frm trips table
             PopulateTripsDropDownList();
             return View();
         }
 
-        // POST: /Student/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
-        
+     //create leg view with valiadtion 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -157,10 +205,10 @@ namespace Trip_booking.Controllers
                 }
             }
 
+            // if validation is successfull add data to DB
             if (ModelState.IsValid)
             {
-                _ctx.Legs.Add(legs);
-                //_ctx.Entry(trips).State = EntityState.Added;
+                _ctx.Legs.Add(legs);  
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -169,15 +217,13 @@ namespace Trip_booking.Controllers
             return View(legs);
         }
 
-        // GET: /Student/Create
+        // create legs guest 
         public ActionResult CreateLegsGuest()
         {
             return View();
         }
 
-        // POST: /Student/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       // create legs guest form 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateLegsGuest([Bind(Include = "LegID,GuestID")] legs_guest legsguest)
@@ -185,7 +231,6 @@ namespace Trip_booking.Controllers
             if (ModelState.IsValid)
             {
                 _ctx.legs_guest.Add(legsguest);
-                //_ctx.Entry(trips).State = EntityState.Added;
                 _ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -193,41 +238,6 @@ namespace Trip_booking.Controllers
             return View(legsguest);
         }
 
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateTrip([Bind(Include = "Trip_Name,LegID,Start_Date,Finish_Date")] Trips trips)
-        {
-            if (ModelState.IsValid)
-            {
-                _ctx.Trips.Add(trips);
-                //_ctx.Entry(Guest).State = EntityState.Added;
-                _ctx.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            // if not valid, re-send View with already entered data
-            return View(trips);
-        }*/
-
        
-        /*public ActionResult Index()
-        {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
-        }*/
-
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your app description page.";
-
-        //    return View();
-        //}
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
     }
 }
